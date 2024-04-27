@@ -1,7 +1,8 @@
-export type User = {
+export interface User {
+  login: string;
   date_joined: string;
-  username: string;
   name: string;
+  avatar: string;
   bio: string;
   repos: number;
   followers: number;
@@ -10,7 +11,7 @@ export type User = {
   twitter: string;
   website: string;
   company: string;
-};
+}
 
 export const fetchUser = async (username: string): Promise<User | null> => {
   try {
@@ -44,8 +45,9 @@ export const fetchUser = async (username: string): Promise<User | null> => {
         ]);
 
       return {
-        name: profileData.name ? profileData.name : profileData.username,
-        username: login,
+        login,
+        name: profileData.name ? profileData.name : profileData.login,
+        avatar: profileData.avatar_url,
         followers: followersData.length,
         following: followingData.length,
         repos: reposData.length,
