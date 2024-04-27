@@ -9,6 +9,7 @@ function App() {
   const [username, setUsername] = useState<string>("octocat");
   const [userData, setUserData] = useState<User | null>();
   const [isNoResults, setIsNoResults] = useState<boolean>(false);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
   useEffect(() => {
     const getUserData = async () => {
@@ -23,10 +24,14 @@ function App() {
     getUserData();
   }, [username]);
   return (
-    <div className="min-h-screen container mx-auto p-8 bg-off-white text-blue-gray flex flex-col gap-y-5">
-      <Navbar />
+    <div
+      className={`min-h-screen container mx-auto p-8 bg-off-white  text-blue-gray flex flex-col gap-y-5 ${
+        isDarkMode ? "dark dark:bg-slate-800" : ""
+      }`}
+    >
+      <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <Searchbar setUsername={setUsername} isNoResults={isNoResults} />
-      <GithubUser userData={userData} />
+      <GithubUser userData={userData} isDarkMode={isDarkMode} />
     </div>
   );
 }

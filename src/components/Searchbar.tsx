@@ -14,11 +14,14 @@ const Searchbar = ({ setUsername, isNoResults }: SearchbarProps) => {
     setSearchTerm("");
   };
   return (
-    <form className="max-w-full relative" onSubmit={handleSubmit}>
+    <form
+      className="max-w-full relative dark:text-white"
+      onSubmit={handleSubmit}
+    >
       <input
         type="text"
         placeholder="Search Github username..."
-        className="w-full h-14 rounded-lg px-10 text-sm"
+        className="w-full h-14 rounded-lg px-10 text-sm dark:bg-shaded-dark-blue"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />

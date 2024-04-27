@@ -57,9 +57,7 @@ export const fetchUser = async (username: string): Promise<User | null> => {
           ? profileData.twitter_username
           : "Not Available",
         company: profileData.company ? profileData.company : "Not Available",
-        bio: profileData.bio
-          ? profileData.bio
-          : "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.",
+        bio: profileData.bio ? profileData.bio : "This profile has no bio",
         date_joined: formatDate(profileData.created_at),
       };
     } else {

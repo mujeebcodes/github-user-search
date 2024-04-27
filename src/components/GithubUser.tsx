@@ -6,10 +6,11 @@ import WebsiteIcon from "./icons/WebsiteIcon";
 
 interface GithubUserProps {
   userData: User | null | undefined;
+  isDarkMode: boolean;
 }
-const GithubUser = ({ userData }: GithubUserProps) => {
+const GithubUser = ({ userData, isDarkMode }: GithubUserProps) => {
   return (
-    <div className=" h-100 flex flex-col justify-around p-5 gap-y-5 bg-pure-white rounded-lg">
+    <div className=" h-100 dark:text-white flex flex-col justify-around p-5 gap-y-5 bg-pure-white dark:bg-shaded-dark-blue rounded-lg">
       <div className="flex gap-x-5">
         <div className="w-17">
           <img
@@ -19,7 +20,9 @@ const GithubUser = ({ userData }: GithubUserProps) => {
           />
         </div>
         <div>
-          <h1 className="font-bold text-black">{userData?.name}</h1>
+          <h1 className="font-bold text-black dark:text-white">
+            {userData?.name}
+          </h1>
           <p className="text-deep-blue">@{userData?.login}</p>
           <p>Joined {userData?.date_joined}</p>
         </div>
@@ -29,38 +32,44 @@ const GithubUser = ({ userData }: GithubUserProps) => {
         <p>{userData?.bio}</p>
       </div>
 
-      <div className="flex justify-around bg-off-white p-5 text-center rounded-lg">
+      <div className="flex justify-around bg-off-white dark:bg-navy-blue p-5 text-center rounded-lg">
         <div>
           <p>Repos</p>
-          <p className="font-bold text-black">{userData?.repos}</p>
+          <p className="font-bold text-black dark:text-white">
+            {userData?.repos}
+          </p>
         </div>
         <div>
           <p>Followers</p>
-          <p className="font-bold text-black">{userData?.followers}</p>
+          <p className="font-bold text-black  dark:text-white">
+            {userData?.followers}
+          </p>
         </div>
         <div>
           <p>Following</p>
-          <p className="font-bold text-black">{userData?.following}</p>
+          <p className="font-bold text-black  dark:text-white">
+            {userData?.following}
+          </p>
         </div>
       </div>
       <div className="flex flex-col gap-y-4 md:grid md:grid-cols-2 md:order-1">
         <p className="flex gap-x-4 items-center">
-          <LocationIcon />
+          <LocationIcon isDarkMode={isDarkMode} />
           {userData?.location}
         </p>
 
         <p className="flex gap-x-4 items-center md:order-3">
-          <WebsiteIcon />
+          <WebsiteIcon isDarkMode={isDarkMode} />
           {userData?.website}
         </p>
 
         <p className="flex gap-x-4 items-center md:order-2">
-          <TwitterIcon />
+          <TwitterIcon isDarkMode={isDarkMode} />
           {userData?.twitter}
         </p>
 
         <p className="flex gap-x-4 items-center md:order-4">
-          <CompanyIcon />
+          <CompanyIcon isDarkMode={isDarkMode} />
           {userData?.company}
         </p>
       </div>
