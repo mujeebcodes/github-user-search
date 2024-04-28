@@ -24,14 +24,12 @@ function App() {
     getUserData();
   }, [username]);
   return (
-    <div
-      className={`min-h-screen container mx-auto p-8 bg-off-white  text-blue-gray flex flex-col gap-y-5 ${
-        isDarkMode ? "dark dark:bg-slate-800" : ""
-      }`}
-    >
-      <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-      <Searchbar setUsername={setUsername} isNoResults={isNoResults} />
-      <GithubUser userData={userData} isDarkMode={isDarkMode} />
+    <div className={`${isDarkMode ? "dark bg-slate-800" : "bg-off-white"}`}>
+      <div className="min-h-screen container mx-auto p-8 text-blue-gray flex flex-col gap-y-5">
+        <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+        <Searchbar setUsername={setUsername} isNoResults={isNoResults} />
+        <GithubUser userData={userData} isDarkMode={isDarkMode} />
+      </div>
     </div>
   );
 }

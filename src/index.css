@@ -4,5 +4,19 @@
 
 * {
   font-family: "Space Mono", monospace;
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+@layer base {
+  :root {
+    --color-deep-blue: 212deg 100% 50%;
+    --color-blue-gray: 217deg 20% 51%;
+    --color-dark-blue: 217deg 35% 45%;
+    --color-dark-blue-gray: 217deg 21% 21%;
+    --color-off-white: 227deg 100% 98%;
+    --color-pure-white: 0deg 0% 100%;
+    --color-navy-blue: 220deg 40% 13%;
+    --color-shaded-dark-blue: 222deg 41% 20%;
+    /* ... */
+  }
 }

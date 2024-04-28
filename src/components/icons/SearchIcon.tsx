@@ -1,5 +1,4 @@
-type Props = {};
-const SearchIcon = (props: Props) => {
+const SearchIcon = () => {
   return (
     <svg className="absolute left-3 top-3" xmlns="http://www.w3.org/2000/svg">
       <path

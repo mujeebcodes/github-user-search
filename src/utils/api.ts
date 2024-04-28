@@ -44,6 +44,12 @@ export const fetchUser = async (username: string): Promise<User | null> => {
           profileResponse.json(),
         ]);
 
+      console.log(profileData);
+      const processedCompany =
+        profileData.company && profileData.company.startsWith("@")
+          ? profileData.company.substring(1)
+          : profileData.company;
+
       return {
         login,
         name: profileData.name ? profileData.name : profileData.login,
@@ -54,9 +60,11 @@ export const fetchUser = async (username: string): Promise<User | null> => {
         location: profileData.location ? profileData.location : "Not Available",
         website: profileData.blog ? profileData.blog : "Not Available",
         twitter: profileData.twitter_username
-          ? profileData.twitter_username
+          ? `https://twitter.com/${profileData.twitter_username}`
           : "Not Available",
-        company: profileData.company ? profileData.company : "Not Available",
+        company: profileData.company
+          ? `https://github.com/${processedCompany.toLowerCase()}`
+          : "Not Available",
         bio: profileData.bio ? profileData.bio : "This profile has no bio",
         date_joined: formatDate(profileData.created_at),
       };

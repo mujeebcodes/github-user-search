@@ -10,7 +10,10 @@ const Mode = ({ isDarkMode, setIsDarkMode }: ModeProps) => {
     setIsDarkMode(!isDarkMode);
   };
   return (
-    <div className=" flex justify-between gap-x-4" onClick={toggleDarkMode}>
+    <div
+      className="flex justify-between gap-x-4 hover:text-black dark:hover:text-white dark:hover:opacity-90"
+      onClick={toggleDarkMode}
+    >
       <span className="text-sm font-bold ">
         {isDarkMode ? "LIGHT" : "DARK"}
       </span>

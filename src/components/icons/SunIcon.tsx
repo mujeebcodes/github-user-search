@@ -1,5 +1,4 @@
-type Props = {};
-const SunIcon = (props: Props) => {
+const SunIcon = () => {
   return (
     <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
       <g fill="#fff" fill-rule="nonzero">
